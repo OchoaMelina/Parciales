@@ -17,8 +17,17 @@
 
 int main(void) {
 	setbuf(stdout,NULL);
-	Producto productos[TAM_PRODUCTO];
-	Usuario usuarios[TAM_USUARIO];
+	Producto productos[TAM_PRODUCTO]={
+			{0001, 1, "Remera", 150, "ROPA", 150},
+			{0002, 1, "Buzo", 600, "ROPA", 40},
+			{0003, 1, "Pantalon", 500, "ROPA", 50},
+			{0004, 1, "Bufanda", 200, "ACCESORIOS", 10},
+	};
+	Usuario usuarios[TAM_USUARIO]={
+			{0001, 0, 1,"melinaochoa.93@gmail.com", "1234","Cotagaita 2987",1825},
+			{0002, 0, 2, "alechino22@hotmail.com", "56789", "chilavert 2722",1824},
+			{0003, 0, 1, "paulinakresser@yahoo.com", "pauLi34","chorrarin 4545", 3030},
+	};
 	Tracking trackings[TAM_TRACKING];
 	int opcionPrimera;
 	int opcionUsuario;
@@ -27,6 +36,8 @@ int main(void) {
 	int baja;
 	char lista;
 	int id;
+	
+	
 
 	do{
 		puts("******************************");
