@@ -105,4 +105,9 @@ int eProducto_Modificar(Producto productos[], int len);
  */
 int eProducto_Sort(Producto productos[], int len, int criterio);
 
+int ReponerStock(Producto productos[],int len);
+
+int eProducto_MostrarPorNombre(Producto productos[], int len);
+
+int eProducto_OrdenadoPorStock(Producto productos[], int len);
 #endif /* PRODUCTOS_H_ */

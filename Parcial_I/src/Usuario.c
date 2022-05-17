@@ -326,5 +326,5 @@ void menuAdmin(int* opcion)
 	puts("\n** 1er EXAMEN LAB I- 1H  **");
 	puts("\n*********** ADMIN ***********\n");
 	getNumero(opcion,"\n1)LISTAR ESTADO DE TODOS LOS USUARIOS\n2)LISTAR TODOS LOS PRODUCTOS POR CATEGORIA"
-		"\n3)BAJA DE UN PRODUCTO\n4)BAJA DE UN USUARIO\n5)TRACKING GLOBAL\n\n0)SALIR\n","\nError reingrese",5,0,2);
+		"\n3)BAJA DE UN PRODUCTO\n4)BAJA DE UN USUARIO\n5)TRACKING GLOBAL\n6)FILTRAR POR NOMBRE\n\n0)SALIR\n","\nError reingrese",6,0,2);
 }

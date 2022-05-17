@@ -50,7 +50,18 @@ int main(void) {
 									uTracking_Alta(productos,TAM_PRODUCTO,trackings,TAM_TRACKING,usuarios,TAM_USUARIO);
 									break;
 							case 2:
-									eProducto_Alta(productos,TAM_PRODUCTO);
+									getNumero(&opcionProducto,"\n1)Alta Producto\n2)Reponer stock","\nError reingrese",2,1,2);
+									if(opcionProducto==1)
+									{
+										eProducto_Alta(productos,TAM_PRODUCTO);
+									}
+									else
+									{
+										if(opcionProducto==2)
+										{
+											ReponerStock(productos,TAM_PRODUCTO);
+										}
+									}
 									break;
 							case 3:
 									while(baja!=3)
@@ -104,6 +115,12 @@ int main(void) {
 							break;
 						case 4:
 							eTracking_Global(trackings,TAM_TRACKING);
+							break;
+						case 5:
+							eTracking_Global(trackings,TAM_TRACKING);
+							break;
+						case 6:
+							eProducto_MostrarPorNombre(Producto productos[], int len);
 							break;
 						}
 					}while(opcionAdmin!=0);

@@ -275,3 +275,84 @@ int eProducto_Sort(Producto productos[], int len, int criterio) {
 	}
 	return rtn;
 }
+
+int ReponerStock(Producto productos[],int len)
+{
+	int i;
+	int indexProducto;
+	int ret=-1
+	Producto aux;
+	if(productos!=NULL && len>0)
+	{
+		indexProducto=eProducto_BuscarPorId(productos,len);
+		if(indexProducto!=-1)
+		{
+			for(i=0;i<len;i++)
+			{
+				eProducto_MostrarUno(productos[i]);
+				if(productos[i].stock==0)
+				{
+					getNumero(&aux.stock,"\nIngrese cantidad a reponer: ","\nError reingrese: ",1000000,0,2);
+					aux.stock=productos[i].stock;
+					ret=0
+				}
+			}
+		}
+	}
+	return ret;
+}
+
+
+int eProducto_MostrarPorNombre(Producto productos[], int len)
+{
+        int i;
+        int retorno=-1;
+        Producto aux;
+        puts("\n\tListado Productos\n");
+        printf("%5s %15s %15s %15s %15s","ID","NOMBRE","PRECIO","CATEGORIA","STOCK");
+        if(productos!=NULL && len>0)
+        {
+        		get_String(aux.nombreProducto,"\nIngrese un nombre: ","\nError",2);
+                for(i=0; i<len;i++)
+                {
+                    if (productos[i].nombreProducto==aux.nombreProducto)
+                    {
+                    	eProducto_OrdenadoPorStock(productos,len);
+                        eProducto_MostrarUno(productos[i]);
+                        retorno=0;
+                    }
+                }
+                retorno=0;
+
+        }
+        return retorno;
+
+}
+int eProducto_OrdenadoPorStock(Producto productos[], int len)
+{
+	int rtn = 1;
+	int i;
+	int j;
+	Producto aux;
+	if (productos != NULL && len > 0) 
+	{
+		for (i = 0; i < len - 1; i++)
+			{
+				for (j = i + 1; j < len; j++)
+				{
+					if (productos[i].isEmpty == OCUPADO
+							&& productos[j].isEmpty == OCUPADO)
+					{
+						if (productos[i].stock > productos[j].stock)
+						{
+							aux = productos[i];
+							productos[i] = productos[j];
+							productos[j] = aux;
+							rtn=0;
+						}
+					}
+				}
+			}
+	}
+	return rtn;
+}
